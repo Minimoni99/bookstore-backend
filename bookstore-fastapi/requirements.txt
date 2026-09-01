@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pyjwt
+bcrypt
+stripe
+requests
+python-dotenv
+python-multipart
+email-validator

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "dc8cafc6-1831-4481-98e0-ddd2956fde35",
+    "email": "admin@test.com",
+    "name": "Admin",
+    "passwordHash": "$2b$12$ImguglcbUDlvG3wJM79mye4G/bPxMjuwu6Koo10F97s8OseODaMmC",
+    "role": "admin",
+    "createdAt": "2026-09-01T14:21:02.123881"
+  }
+]
