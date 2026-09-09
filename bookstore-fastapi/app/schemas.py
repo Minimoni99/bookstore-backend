@@ -49,6 +49,7 @@ class SettingsUpdate(BaseModel):
     penName: Optional[str] = None
     heroHeadline: Optional[str] = None
     heroSubheadline: Optional[str] = None
+    heroVideoUrl: Optional[str] = None
     authorPhotoUrl: Optional[str] = None
     authorBio: Optional[str] = None
     contactEmail: Optional[str] = None

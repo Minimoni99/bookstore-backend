@@ -56,6 +56,29 @@ def delete_book(book_id: str):
     return {"deleted": True}
 
 
+# ---- Video uploads (hero video) ----
+ALLOWED_VIDEO_EXTENSIONS = {".mp4", ".webm", ".mov"}
+MAX_VIDEO_UPLOAD_BYTES = 300 * 1024 * 1024  # 300MB
+
+
+@router.post("/upload-video")
+async def upload_video(file: UploadFile = File(...)):
+    ext = os.path.splitext(file.filename or "")[1].lower()
+    if ext not in ALLOWED_VIDEO_EXTENSIONS:
+        raise HTTPException(status_code=400, detail="Only MP4, WEBM, or MOV videos are allowed.")
+
+    contents = await file.read()
+    if len(contents) > MAX_VIDEO_UPLOAD_BYTES:
+        raise HTTPException(status_code=400, detail="Video is too large (max 300MB). Export at 1080p with reasonable bitrate.")
+
+    filename = f"{uuid.uuid4()}{ext}"
+    filepath = os.path.join(UPLOAD_DIR, filename)
+    with open(filepath, "wb") as f:
+        f.write(contents)
+
+    return {"url": f"/uploads/{filename}"}
+
+
 # ---- Image uploads (book covers, author photo) ----
 @router.post("/upload")
 async def upload_image(file: UploadFile = File(...)):

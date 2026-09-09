@@ -12,6 +12,7 @@ DEFAULTS = {
     "penName": "Your Pen Name",
     "heroHeadline": "Stories You'll Still Be Thinking About At 2am",
     "heroSubheadline": "Slow-burn, forbidden, impossible to put down. Pay by card or crypto — instant download, every time.",
+    "heroVideoUrl": "",
     "authorPhotoUrl": "",
     "authorBio": "A short, genre-appropriate bio — what draws you to writing dark/paranormal romance, and what readers can expect across your catalog.",
     "contactEmail": "",
@@ -40,7 +41,7 @@ def read_settings() -> dict:
 
 
 PUBLIC_FIELDS = [
-    "penName", "heroHeadline", "heroSubheadline", "authorPhotoUrl", "authorBio",
+    "penName", "heroHeadline", "heroSubheadline", "heroVideoUrl", "authorPhotoUrl", "authorBio",
     "contactEmail", "cardEnabled", "cryptoEnabled",
     "subscriptionPriceLabel", "subscriptionCtaText", "subscriptionBenefitsRegular", "subscriptionBenefitsPremium",
 ]
