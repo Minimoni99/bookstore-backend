@@ -9,24 +9,19 @@ import os
 SETTINGS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "settings.json")
 
 DEFAULTS = {
-    "penName": "Your Pen Name",
-    "heroHeadline": "Stories You'll Still Be Thinking About At 2am",
-    "heroSubheadline": "Slow-burn, forbidden, impossible to put down. Pay by card or crypto — instant download, every time.",
+    "penName": "THE FOUNDRY",
+    "heroHeadline": "Built For Men Who Build Real Businesses.",
+    "heroSubheadline": "A private network of construction and real estate operators. Rooms built around the work you actually do.",
     "heroVideoUrl": "",
     "authorPhotoUrl": "",
-    "authorBio": "A short, genre-appropriate bio — what draws you to writing dark/paranormal romance, and what readers can expect across your catalog.",
+    "authorBio": "",
     "contactEmail": "",
-    "cardEnabled": False,
-    "stripeSecretKey": "",
-    "stripeWebhookSecret": "",
-    "stripeSubscriptionPriceId": "",
-    "cryptoEnabled": False,
-    "nowpaymentsApiKey": "",
-    "nowpaymentsIpnSecret": "",
-    "subscriptionPriceLabel": "$9.99/mo",
-    "subscriptionCtaText": "Want unlimited access? Become a premium member.",
-    "subscriptionBenefitsRegular": ["Buy books one at a time", "Standard download access", "Email support"],
-    "subscriptionBenefitsPremium": ["Unlimited access to the entire catalog", "Every new release, included automatically", "Priority support"],
+    "whatsappLink": "",
+    "telegramLink": "",
+    "subscriptionPriceLabel": "$37/mo",
+    "subscriptionCtaText": "GET ACCESS",
+    "subscriptionBenefitsRegular": [],
+    "subscriptionBenefitsPremium": ["Full access to every room — Construction and Real Estate", "Live weekly coach sessions, plus every past recording", "The Vault — guides, templates, quotes, and contracts", "Direct access to operators at every level"],
 }
 
 if not os.path.exists(SETTINGS_FILE):
@@ -42,7 +37,7 @@ def read_settings() -> dict:
 
 PUBLIC_FIELDS = [
     "penName", "heroHeadline", "heroSubheadline", "heroVideoUrl", "authorPhotoUrl", "authorBio",
-    "contactEmail", "cardEnabled", "cryptoEnabled",
+    "contactEmail", "whatsappLink", "telegramLink",
     "subscriptionPriceLabel", "subscriptionCtaText", "subscriptionBenefitsRegular", "subscriptionBenefitsPremium",
 ]
 

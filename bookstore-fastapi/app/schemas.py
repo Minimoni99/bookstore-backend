@@ -5,7 +5,8 @@ from typing import Optional, List
 class RegisterBody(BaseModel):
     email: EmailStr
     password: str
-    name: Optional[str] = ""
+    name: str
+    country: str
 
 
 class LoginBody(BaseModel):
@@ -53,13 +54,8 @@ class SettingsUpdate(BaseModel):
     authorPhotoUrl: Optional[str] = None
     authorBio: Optional[str] = None
     contactEmail: Optional[str] = None
-    cardEnabled: Optional[bool] = None
-    stripeSecretKey: Optional[str] = None
-    stripeWebhookSecret: Optional[str] = None
-    stripeSubscriptionPriceId: Optional[str] = None
-    cryptoEnabled: Optional[bool] = None
-    nowpaymentsApiKey: Optional[str] = None
-    nowpaymentsIpnSecret: Optional[str] = None
+    whatsappLink: Optional[str] = None
+    telegramLink: Optional[str] = None
     subscriptionPriceLabel: Optional[str] = None
     subscriptionCtaText: Optional[str] = None
     subscriptionBenefitsRegular: Optional[List[str]] = None
