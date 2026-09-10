@@ -6,11 +6,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from . import routes_auth, routes_books, routes_checkout, routes_webhooks, routes_admin, routes_downloads, routes_settings, routes_leads
+from . import routes_auth, routes_books, routes_checkout, routes_webhooks, routes_admin, routes_downloads, routes_settings, routes_leads, routes_bootstrap
 
 app = FastAPI(title="Ebook Store API")
 
-UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "uploads")
+UPLOAD_DIR = os.environ.get("UPLOAD_DIR") or os.path.join(os.path.dirname(__file__), "..", "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
@@ -34,6 +34,7 @@ app.include_router(routes_downloads.router)
 app.include_router(routes_settings.router)
 app.include_router(routes_leads.router)
 app.include_router(routes_leads.admin_router)
+app.include_router(routes_bootstrap.router)
 
 
 @app.get("/health")

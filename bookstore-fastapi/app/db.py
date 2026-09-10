@@ -6,7 +6,7 @@ later is a contained change to this one file, not a rewrite of the routes.
 import json
 import os
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+DATA_DIR = os.environ.get("DATA_DIR") or os.path.join(os.path.dirname(__file__), "..", "data")
 FILES = {
     "users": os.path.join(DATA_DIR, "users.json"),
     "books": os.path.join(DATA_DIR, "books.json"),
