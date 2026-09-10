@@ -9,7 +9,6 @@ import os
 SETTINGS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "settings.json")
 
 DEFAULTS = {
-    "penName": "THE FOUNDRY",
     "heroHeadline": "Built For Men Who Build Real Businesses.",
     "heroSubheadline": "A private network of construction and real estate operators. Rooms built around the work you actually do.",
     "heroVideoUrl": "",
@@ -18,6 +17,7 @@ DEFAULTS = {
     "contactEmail": "",
     "whatsappLink": "",
     "telegramLink": "",
+    "membershipMessageTemplate": "Hi, I'm interested in joining the membership. My name is {name}.",
     "subscriptionPriceLabel": "$37/mo",
     "subscriptionCtaText": "GET ACCESS",
     "subscriptionBenefitsRegular": [],
@@ -36,8 +36,8 @@ def read_settings() -> dict:
 
 
 PUBLIC_FIELDS = [
-    "penName", "heroHeadline", "heroSubheadline", "heroVideoUrl", "authorPhotoUrl", "authorBio",
-    "contactEmail", "whatsappLink", "telegramLink",
+    "heroHeadline", "heroSubheadline", "heroVideoUrl", "authorPhotoUrl", "authorBio",
+    "contactEmail", "whatsappLink", "telegramLink", "membershipMessageTemplate",
     "subscriptionPriceLabel", "subscriptionCtaText", "subscriptionBenefitsRegular", "subscriptionBenefitsPremium",
 ]
 

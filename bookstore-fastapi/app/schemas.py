@@ -2,10 +2,10 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 
 
-class RegisterBody(BaseModel):
+class LeadBody(BaseModel):
+    firstName: str
+    surname: str
     email: EmailStr
-    password: str
-    name: str
     country: str
 
 
@@ -47,7 +47,6 @@ class RoleUpdate(BaseModel):
 
 
 class SettingsUpdate(BaseModel):
-    penName: Optional[str] = None
     heroHeadline: Optional[str] = None
     heroSubheadline: Optional[str] = None
     heroVideoUrl: Optional[str] = None
@@ -56,6 +55,7 @@ class SettingsUpdate(BaseModel):
     contactEmail: Optional[str] = None
     whatsappLink: Optional[str] = None
     telegramLink: Optional[str] = None
+    membershipMessageTemplate: Optional[str] = None
     subscriptionPriceLabel: Optional[str] = None
     subscriptionCtaText: Optional[str] = None
     subscriptionBenefitsRegular: Optional[List[str]] = None

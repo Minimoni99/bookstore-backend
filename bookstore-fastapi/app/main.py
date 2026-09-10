@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from . import routes_auth, routes_books, routes_checkout, routes_webhooks, routes_admin, routes_downloads, routes_settings
+from . import routes_auth, routes_books, routes_checkout, routes_webhooks, routes_admin, routes_downloads, routes_settings, routes_leads
 
 app = FastAPI(title="Ebook Store API")
 
@@ -32,6 +32,8 @@ app.include_router(routes_webhooks.router)
 app.include_router(routes_admin.router)
 app.include_router(routes_downloads.router)
 app.include_router(routes_settings.router)
+app.include_router(routes_leads.router)
+app.include_router(routes_leads.admin_router)
 
 
 @app.get("/health")

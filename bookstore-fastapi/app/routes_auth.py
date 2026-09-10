@@ -5,31 +5,13 @@ from fastapi import APIRouter, HTTPException, Depends
 
 from . import db
 from .auth import sign, current_user
-from .schemas import RegisterBody, LoginBody, ProfileUpdate, PasswordChange
+from .schemas import LoginBody, ProfileUpdate, PasswordChange
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
 def safe_user(u: dict) -> dict:
-    return {"id": u["id"], "email": u["email"], "name": u.get("name", ""), "role": u["role"]}
-
-
-@router.post("/register")
-def register(body: RegisterBody):
-    if db.find("users", lambda u: u["email"].lower() == body.email.lower()):
-        raise HTTPException(status_code=409, detail="An account with that email already exists.")
-
-    password_hash = bcrypt.hashpw(body.password.encode(), bcrypt.gensalt()).decode()
-    user = {
-        "id": str(uuid.uuid4()),
-        "email": body.email,
-        "name": body.name or "",
-        "passwordHash": password_hash,
-        "role": "customer",  # first admin is created via create_admin.py
-        "createdAt": datetime.datetime.utcnow().isoformat(),
-    }
-    db.insert("users", user)
-    return {"token": sign(user), "user": safe_user(user)}
+    return {"id": u["id"], "email": u["email"], "name": u.get("name", ""), "country": u.get("country", ""), "role": u["role"]}
 
 
 @router.post("/login")

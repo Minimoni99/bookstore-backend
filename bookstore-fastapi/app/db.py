@@ -12,6 +12,7 @@ FILES = {
     "books": os.path.join(DATA_DIR, "books.json"),
     "orders": os.path.join(DATA_DIR, "orders.json"),
     "subscriptions": os.path.join(DATA_DIR, "subscriptions.json"),
+    "leads": os.path.join(DATA_DIR, "leads.json"),
 }
 
 os.makedirs(DATA_DIR, exist_ok=True)
