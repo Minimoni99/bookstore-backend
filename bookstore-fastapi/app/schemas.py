@@ -9,6 +9,10 @@ class LeadBody(BaseModel):
     country: str
 
 
+class RequestAccessBody(BaseModel):
+    channel: str
+
+
 class LoginBody(BaseModel):
     email: EmailStr
     password: str
@@ -50,8 +54,6 @@ class SettingsUpdate(BaseModel):
     heroHeadline: Optional[str] = None
     heroSubheadline: Optional[str] = None
     heroVideoUrl: Optional[str] = None
-    authorPhotoUrl: Optional[str] = None
-    authorBio: Optional[str] = None
     contactEmail: Optional[str] = None
     whatsappLink: Optional[str] = None
     telegramLink: Optional[str] = None

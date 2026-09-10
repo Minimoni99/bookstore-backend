@@ -12,8 +12,6 @@ DEFAULTS = {
     "heroHeadline": "Built For Men Who Build Real Businesses.",
     "heroSubheadline": "A private network of construction and real estate operators. Rooms built around the work you actually do.",
     "heroVideoUrl": "",
-    "authorPhotoUrl": "",
-    "authorBio": "",
     "contactEmail": "",
     "whatsappLink": "",
     "telegramLink": "",
@@ -36,7 +34,7 @@ def read_settings() -> dict:
 
 
 PUBLIC_FIELDS = [
-    "heroHeadline", "heroSubheadline", "heroVideoUrl", "authorPhotoUrl", "authorBio",
+    "heroHeadline", "heroSubheadline", "heroVideoUrl",
     "contactEmail", "whatsappLink", "telegramLink", "membershipMessageTemplate",
     "subscriptionPriceLabel", "subscriptionCtaText", "subscriptionBenefitsRegular", "subscriptionBenefitsPremium",
 ]
